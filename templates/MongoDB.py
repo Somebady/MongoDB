@@ -108,3 +108,16 @@ data = info.aggregate([
 
 for row in data:
     print(row)
+
+
+# MongoDB ATLAs(AWS, Database as service)
+
+client = pymongo.MongoClient(
+    "mongodb+srv://somebady:somebady@mydb.skqcm.mongodb.net/test")
+
+mydb = client['Students']
+students = mydb.students
+students.insert_one({'First_name': 'Akshay',
+                     'Last_name': 'Soni', 'Age': 24, 'Relationship': 'Single'})
+for record in students.find():
+    print(record)
