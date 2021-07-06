@@ -16,6 +16,7 @@ import nltk
 from sklearn.feature_extraction.text import TfidfVectorizer
 app = Flask(__name__)
 nltk.download('stopwords')
+nltk.download('wordnet')
 model = pickle.load(open('spam_classifier.pkl', 'rb'))
 tv_vector = pickle.load(open('tv_vector.pkl', 'rb'))
 @app.route('/', methods=['GET'])
@@ -52,4 +53,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0')
